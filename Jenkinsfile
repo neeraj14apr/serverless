@@ -12,7 +12,7 @@ pipeline {
             steps {
                 
                 script {  
-                sh '''#!/bin/bash   
+                sh '''  
                 aversion = sh(returnStdout: true, script: "ls -l")
                 '''    
              }
