@@ -5,11 +5,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                aversion = sh(returnStdout: true, script: "cat build.gradle  | grep  'version ='")
-                sh "echo faisaltwo-${aversion}"
-             }
-            steps {
                 echo 'Building..'
+                echo $aversion
             }
         }
         stage('Test') {
