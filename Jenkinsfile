@@ -10,8 +10,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                script { 
-                 sh "cd $WORKSPACE"    
+                script {  
                 aversion = sh(returnStdout: true, script: "ls -l")
              }
                 sh "echo faisaltwo-${aversion}"
@@ -21,7 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                echo "$aversion"
+                # echo "$aversion"
         }
     }
 }
