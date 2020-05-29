@@ -9,15 +9,12 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                
-                script {  
+            steps { 
                 sh '''  
                 aversion = sh(returnStdout: true, script: "ls -l")
-                '''    
-             }
                 sh "echo faisaltwo-${aversion}"
                 echo 'Testing..'
+                '''
             }
         }
         stage('Deploy') {
