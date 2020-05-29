@@ -14,7 +14,6 @@ pipeline {
                 aversion = sh(returnStdout: true, script: "cat build.gradle  | grep  'version ='")
              }
                 sh "echo faisaltwo-${aversion}"
-             }
                 echo 'Testing..'
             }
         }
