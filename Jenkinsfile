@@ -11,7 +11,7 @@ pipeline {
         stage('Test') {
             steps {
                 script { 
-                cd $WORKSPACE    
+                 sh "cd $WORKSPACE"    
                 aversion = sh(returnStdout: true, script: "cat build.gradle  | grep  'version ='")
              }
                 sh "echo faisaltwo-${aversion}"
