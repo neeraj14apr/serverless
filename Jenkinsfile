@@ -5,16 +5,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
-            }
-        }
-        stage ('variable') {
-            steps {
               script {   
                 aversion = sh(returnStdout: true, script: "cat build.gradle  | grep  'version ='")
              }
                 sh "echo faisaltwo-${aversion}"
              }
+            steps {
+                echo 'Building..'
+            }
         }
         stage('Test') {
             steps {
