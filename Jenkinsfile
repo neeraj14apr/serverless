@@ -1,3 +1,4 @@
+def aversion = "test"
 pipeline {
     agent any
 
@@ -5,18 +6,25 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                emp = neeraj
             }
         }
+        stage ('variable') {
+      steps {
+          script {    
+          aversion = sh(returnStdout: true, script: "cat build.gradle  | grep  'version ='").trim()
+        }
+            sh "echo faisaltwo-${aversion}"
+      }
+    }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                echo testing id done by ${emp}
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                echo $aversion
             }
         }
     }
