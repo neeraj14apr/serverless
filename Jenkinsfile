@@ -6,7 +6,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                echo $aversion
             }
         }
         stage('Test') {
