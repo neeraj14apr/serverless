@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script { 
                  sh "cd $WORKSPACE"    
-                aversion = sh(returnStdout: true, script: "cat build.gradle  | grep  'version ='")
+                aversion = sh(returnStdout: true, script: "ls -l")
              }
                 sh "echo faisaltwo-${aversion}"
                 echo 'Testing..'
